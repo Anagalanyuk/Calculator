@@ -58,7 +58,6 @@
 			this.displayNumber.Size = new System.Drawing.Size(418, 30);
 			this.displayNumber.TabIndex = 0;
 			this.displayNumber.TextAlign = System.Drawing.ContentAlignment.TopRight;
-			this.displayNumber.Click += new System.EventHandler(this.displayNumber_Click);
 			// 
 			// displayCalculator
 			// 
@@ -73,7 +72,6 @@
 			this.displayCalculator.Size = new System.Drawing.Size(418, 38);
 			this.displayCalculator.TabIndex = 1;
 			this.displayCalculator.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.displayCalculator.TextChanged += new System.EventHandler(this.DisplayCalculator);
 			// 
 			// Button7
 			// 
