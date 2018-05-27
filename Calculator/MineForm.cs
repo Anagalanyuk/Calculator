@@ -65,7 +65,6 @@ namespace Calculator
 				{
 					if (isFirstNumber)
 					{
-						OnArithmeticOperations();
 						buttonResult.Enabled = true;
 						displayCalculator.Text = "1";
 						isFirstNumber = false;
@@ -88,13 +87,22 @@ namespace Calculator
 			{
 				if (!isRightOprand)
 				{
-					displayCalculator.Text += "2";
+					if (newOperation)
+					{
+						displayCalculator.Text = "2";
+					}
+					else
+					{
+						displayCalculator.Text += "2";
+					}
 					OnArithmeticOperations();
+					buttonResult.Enabled = false;
 				}
 				else
 				{
 					if (isFirstNumber)
 					{
+						buttonResult.Enabled = true;
 						displayCalculator.Text = "2";
 						isFirstNumber = false;
 					}
@@ -102,7 +110,6 @@ namespace Calculator
 					{
 						displayCalculator.Text += "2";
 					}
-					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -117,13 +124,22 @@ namespace Calculator
 			{
 				if (!isRightOprand)
 				{
-					displayCalculator.Text += "3";
+					if (newOperation)
+					{
+						displayCalculator.Text = "3";
+					}
+					else
+					{
+						displayCalculator.Text += "3";
+					}
 					OnArithmeticOperations();
+					buttonResult.Enabled = false;
 				}
 				else
 				{
 					if (isFirstNumber)
 					{
+						buttonResult.Enabled = true;
 						displayCalculator.Text = "3";
 						isFirstNumber = false;
 					}
@@ -131,7 +147,6 @@ namespace Calculator
 					{
 						displayCalculator.Text += "3";
 					}
-					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -146,13 +161,22 @@ namespace Calculator
 			{
 				if (!isRightOprand)
 				{
-					displayCalculator.Text += "4";
+					if (newOperation)
+					{
+						displayCalculator.Text = "4";
+					}
+					else
+					{
+						displayCalculator.Text += "4";
+					}
 					OnArithmeticOperations();
+					buttonResult.Enabled = false;
 				}
 				else
 				{
 					if (isFirstNumber)
 					{
+						buttonResult.Enabled = true;
 						displayCalculator.Text = "4";
 						isFirstNumber = false;
 					}
@@ -160,7 +184,6 @@ namespace Calculator
 					{
 						displayCalculator.Text += "4";
 					}
-					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -175,13 +198,22 @@ namespace Calculator
 			{
 				if (!isRightOprand)
 				{
-					displayCalculator.Text += "5";
+					if (newOperation)
+					{
+						displayCalculator.Text = "5";
+					}
+					else
+					{
+						displayCalculator.Text += "5";
+					}
 					OnArithmeticOperations();
+					buttonResult.Enabled = false;
 				}
 				else
 				{
 					if (isFirstNumber)
 					{
+						buttonResult.Enabled = true;
 						displayCalculator.Text = "5";
 						isFirstNumber = false;
 					}
@@ -189,7 +221,6 @@ namespace Calculator
 					{
 						displayCalculator.Text += "5";
 					}
-					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -204,13 +235,22 @@ namespace Calculator
 			{
 				if (!isRightOprand)
 				{
-					displayCalculator.Text += "6";
+					if (newOperation)
+					{
+						displayCalculator.Text = "6";
+					}
+					else
+					{
+						displayCalculator.Text += "6";
+					}
 					OnArithmeticOperations();
+					buttonResult.Enabled = false;
 				}
 				else
 				{
 					if (isFirstNumber)
 					{
+						buttonResult.Enabled = true;
 						displayCalculator.Text = "6";
 						isFirstNumber = false;
 					}
@@ -218,7 +258,6 @@ namespace Calculator
 					{
 						displayCalculator.Text += "6";
 					}
-					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -233,13 +272,22 @@ namespace Calculator
 			{
 				if (!isRightOprand)
 				{
-					displayCalculator.Text += "7";
+					if (newOperation)
+					{
+						displayCalculator.Text = "7";
+					}
+					else
+					{
+						displayCalculator.Text += "7";
+					}
 					OnArithmeticOperations();
+					buttonResult.Enabled = false;
 				}
 				else
 				{
 					if (isFirstNumber)
 					{
+						buttonResult.Enabled = true;
 						displayCalculator.Text = "7";
 						isFirstNumber = false;
 					}
@@ -247,7 +295,6 @@ namespace Calculator
 					{
 						displayCalculator.Text += "7";
 					}
-					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -262,13 +309,22 @@ namespace Calculator
 			{
 				if (!isRightOprand)
 				{
-					displayCalculator.Text += "8";
+					if (newOperation)
+					{
+						displayCalculator.Text = "8";
+					}
+					else
+					{
+						displayCalculator.Text += "8";
+					}
 					OnArithmeticOperations();
+					buttonResult.Enabled = false;
 				}
 				else
 				{
 					if (isFirstNumber)
 					{
+						buttonResult.Enabled = true;
 						displayCalculator.Text = "8";
 						isFirstNumber = false;
 					}
@@ -276,7 +332,6 @@ namespace Calculator
 					{
 						displayCalculator.Text += "8";
 					}
-					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -291,13 +346,22 @@ namespace Calculator
 			{
 				if (!isRightOprand)
 				{
-					displayCalculator.Text += "9";
+					if (newOperation)
+					{
+						displayCalculator.Text = "9";
+					}
+					else
+					{
+						displayCalculator.Text += "9";
+					}
 					OnArithmeticOperations();
+					buttonResult.Enabled = false;
 				}
 				else
 				{
 					if (isFirstNumber)
 					{
+						buttonResult.Enabled = true;
 						displayCalculator.Text = "9";
 						isFirstNumber = false;
 					}
@@ -305,7 +369,6 @@ namespace Calculator
 					{
 						displayCalculator.Text += "9";
 					}
-					buttonResult.Enabled = true;
 				}
 			}
 		}
