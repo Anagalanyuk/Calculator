@@ -5,9 +5,12 @@ namespace Calculator
 {
 	public partial class MineForm : Form
 	{
+		private bool isFirstNumber = true;
+		private bool isRightOprand = false;
+		private bool newOperation = false;
 		private int operandLeft;
 		private int operandRight;
-		private bool isRightOprand = false;
+		private int result;
 
 		public MineForm()
 		{
@@ -17,8 +20,24 @@ namespace Calculator
 
 		private void Button0_Click(object sender, EventArgs e)
 		{
-			displayCalculator.Text += "0";
-			OnArithmeticOperations();
+			if (!isRightOprand)
+			{
+				displayCalculator.Text += "0";
+				OnArithmeticOperations();
+			}
+			else
+			{
+				if (isFirstNumber)
+				{
+					displayCalculator.Text = "0";
+					isFirstNumber = false;
+				}
+				else
+				{
+					displayCalculator.Text += "0";
+				}
+				buttonResult.Enabled = true;
+			}
 		}
 
 		private void Button1_Click(object sender, EventArgs e)
@@ -31,15 +50,30 @@ namespace Calculator
 			{
 				if (!isRightOprand)
 				{
-					displayCalculator.Text += "1";
+					if (newOperation)
+					{
+						displayCalculator.Text = "1";
+					}
+					else
+					{
+						displayCalculator.Text += "1";
+					}
 					OnArithmeticOperations();
+					buttonResult.Enabled = false;
 				}
 				else
 				{
-					displayCalculator.Text = "1";
-					OnArithmeticOperations();
-					ButtonResult.Enabled = true;
-					isRightOprand = false;
+					if (isFirstNumber)
+					{
+						OnArithmeticOperations();
+						buttonResult.Enabled = true;
+						displayCalculator.Text = "1";
+						isFirstNumber = false;
+					}
+					else
+					{
+						displayCalculator.Text += "1";
+					}
 				}
 			}
 		}
@@ -59,10 +93,16 @@ namespace Calculator
 				}
 				else
 				{
-					displayCalculator.Text = "2";
-					OnArithmeticOperations();
-					ButtonResult.Enabled = true;
-					isRightOprand = false;
+					if (isFirstNumber)
+					{
+						displayCalculator.Text = "2";
+						isFirstNumber = false;
+					}
+					else
+					{
+						displayCalculator.Text += "2";
+					}
+					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -82,10 +122,16 @@ namespace Calculator
 				}
 				else
 				{
-					displayCalculator.Text = "3";
-					OnArithmeticOperations();
-					ButtonResult.Enabled = true;
-					isRightOprand = false;
+					if (isFirstNumber)
+					{
+						displayCalculator.Text = "3";
+						isFirstNumber = false;
+					}
+					else
+					{
+						displayCalculator.Text += "3";
+					}
+					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -105,10 +151,16 @@ namespace Calculator
 				}
 				else
 				{
-					displayCalculator.Text = "4";
-					OnArithmeticOperations();
-					ButtonResult.Enabled = true;
-					isRightOprand = false;
+					if (isFirstNumber)
+					{
+						displayCalculator.Text = "4";
+						isFirstNumber = false;
+					}
+					else
+					{
+						displayCalculator.Text += "4";
+					}
+					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -128,10 +180,16 @@ namespace Calculator
 				}
 				else
 				{
-					displayCalculator.Text = "5";
-					OnArithmeticOperations();
-					ButtonResult.Enabled = true;
-					isRightOprand = false;
+					if (isFirstNumber)
+					{
+						displayCalculator.Text = "5";
+						isFirstNumber = false;
+					}
+					else
+					{
+						displayCalculator.Text += "5";
+					}
+					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -151,10 +209,16 @@ namespace Calculator
 				}
 				else
 				{
-					displayCalculator.Text = "6";
-					OnArithmeticOperations();
-					ButtonResult.Enabled = true;
-					isRightOprand = false;
+					if (isFirstNumber)
+					{
+						displayCalculator.Text = "6";
+						isFirstNumber = false;
+					}
+					else
+					{
+						displayCalculator.Text += "6";
+					}
+					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -174,10 +238,16 @@ namespace Calculator
 				}
 				else
 				{
-					displayCalculator.Text = "7";
-					OnArithmeticOperations();
-					ButtonResult.Enabled = true;
-					isRightOprand = false;
+					if (isFirstNumber)
+					{
+						displayCalculator.Text = "7";
+						isFirstNumber = false;
+					}
+					else
+					{
+						displayCalculator.Text += "7";
+					}
+					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -197,10 +267,16 @@ namespace Calculator
 				}
 				else
 				{
-					displayCalculator.Text = "8";
-					OnArithmeticOperations();
-					ButtonResult.Enabled = true;
-					isRightOprand = false;
+					if (isFirstNumber)
+					{
+						displayCalculator.Text = "8";
+						isFirstNumber = false;
+					}
+					else
+					{
+						displayCalculator.Text += "8";
+					}
+					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -220,10 +296,16 @@ namespace Calculator
 				}
 				else
 				{
-					displayCalculator.Text = "9";
-					OnArithmeticOperations();
-					ButtonResult.Enabled = true;
-					isRightOprand = false;
+					if (isFirstNumber)
+					{
+						displayCalculator.Text = "9";
+						isFirstNumber = false;
+					}
+					else
+					{
+						displayCalculator.Text += "9";
+					}
+					buttonResult.Enabled = true;
 				}
 			}
 		}
@@ -235,6 +317,7 @@ namespace Calculator
 			OffArithmeticOperations();
 			operandLeft = int.Parse(displayCalculator.Text);
 			isRightOprand = true;
+			isFirstNumber = true;
 		}
 
 		private void ButtonMinus_Click(object sender, EventArgs e)
@@ -242,6 +325,10 @@ namespace Calculator
 			displayNumber.Text = displayCalculator.Text;
 			displayNumber.Text += " -";
 			OffArithmeticOperations();
+			operandLeft = int.Parse(displayCalculator.Text);
+			isRightOprand = true;
+			isFirstNumber = true;
+			buttonResult.Enabled = true;
 		}
 
 		private void ButtonMultiply_Click(object sender, EventArgs e)
@@ -249,6 +336,10 @@ namespace Calculator
 			displayNumber.Text = displayCalculator.Text;
 			displayNumber.Text += " *";
 			OffArithmeticOperations();
+			operandLeft = int.Parse(displayCalculator.Text);
+			isRightOprand = true;
+			isFirstNumber = true;
+			buttonResult.Enabled = true;
 		}
 
 		private void ButtonDivide_Click(object sender, EventArgs e)
@@ -256,38 +347,68 @@ namespace Calculator
 			displayNumber.Text = displayCalculator.Text;
 			displayNumber.Text += " /";
 			OffArithmeticOperations();
+			operandLeft = int.Parse(displayCalculator.Text);
+			isRightOprand = true;
+			isFirstNumber = true;
+			buttonResult.Enabled = true;
 		}
 
 		private void ButtonResult_Click(object sender, EventArgs e)
 		{
 			operandRight = int.Parse(displayCalculator.Text);
-			int result = operandLeft + operandRight;
+			switch (displayNumber.Text[displayNumber.Text.Length - 1])
+			{
+				case '+':
+					{
+						result = operandLeft + operandRight;
+						break;
+					}
+				case '_':
+					{
+						result = operandLeft - operandRight;
+						break;
+					}
+				case '*':
+					{
+						result = operandLeft * operandRight;
+						break;
+					}
+				case '/':
+					{
+						result = operandLeft / operandRight;
+						break;
+					}
+			}
 			displayNumber.Text = "";
 			displayCalculator.Text = result.ToString();
-			isRightOprand = true;
+			isRightOprand = false;
+			isFirstNumber = true;
+			newOperation = true;
+			OffArithmeticOperations();
 		}
 
 		private void ButonCE_Click(object sender, EventArgs e)
 		{
 			displayCalculator.Text = "";
 			OffArithmeticOperations();
+			isFirstNumber = true;
 		}
 
 		private void OffArithmeticOperations()
 		{
-			ButtonPlus.Enabled = false;
-			ButtonMinus.Enabled = false;
-			ButtonMultiply.Enabled = false;
-			ButtonDivide.Enabled = false;
-			ButtonResult.Enabled = false;
+			buttonPlus.Enabled = false;
+			buttonMinus.Enabled = false;
+			buttonMultiply.Enabled = false;
+			buttonDivide.Enabled = false;
+			buttonResult.Enabled = false;
 		}
 
 		private void OnArithmeticOperations()
 		{
-			ButtonPlus.Enabled = true;
-			ButtonMinus.Enabled = true;
-			ButtonMultiply.Enabled = true;
-			ButtonDivide.Enabled = true;
+			buttonPlus.Enabled = true;
+			buttonMinus.Enabled = true;
+			buttonMultiply.Enabled = true;
+			buttonDivide.Enabled = true;
 		}
 	}
 }
