@@ -20,27 +20,41 @@ namespace Calculator
 
 		private void Button0_Click(object sender, EventArgs e)
 		{
-			if (!isRightOprand)
+			if (displayCalculator.Text == "0")
 			{
-				displayCalculator.Text += "0";
-				OnArithmeticOperations();
+				displayCalculator.Text = "0";
 			}
 			else
 			{
-				if (isFirstNumber)
+				if (!isRightOprand)
 				{
-					displayCalculator.Text = "0";
-					isFirstNumber = false;
+					if (newOperation)
+					{
+						displayCalculator.Text = "0";
+					}
+					else
+					{
+						displayCalculator.Text += "0";
+					}
+					OnArithmeticOperations();
+					buttonResult.Enabled = false;
 				}
 				else
 				{
-					displayCalculator.Text += "0";
+					if (isFirstNumber)
+					{
+						buttonResult.Enabled = true;
+						displayCalculator.Text = "1";
+						isFirstNumber = false;
+					}
+					else
+					{
+						displayCalculator.Text += "1";
+					}
 				}
-				buttonResult.Enabled = true;
 			}
 		}
-
-		private void Button1_Click(object sender, EventArgs e)
+			private void Button1_Click(object sender, EventArgs e)
 		{
 			if (displayCalculator.Text == "0")
 			{
