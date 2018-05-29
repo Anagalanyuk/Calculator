@@ -422,25 +422,17 @@ namespace Calculator
 			switch (displayNumber.Text[displayNumber.Text.Length - 1])
 			{
 				case '+':
-					{
-						result = operandLeft + operandRight;
-						break;
-					}
+					result = operandLeft + operandRight;
+					break;
 				case '_':
-					{
-						result = operandLeft - operandRight;
-						break;
-					}
+					result = operandLeft - operandRight;
+					break;
 				case '*':
-					{
-						result = operandLeft * operandRight;
-						break;
-					}
+					result = operandLeft * operandRight;
+					break;
 				case '/':
-					{
-						result = operandLeft / operandRight;
-						break;
-					}
+					result = operandLeft / operandRight;
+					break;
 			}
 			displayNumber.Text = "";
 			displayCalculator.Text = result.ToString();

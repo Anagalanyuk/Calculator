@@ -259,7 +259,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.Name = "MineForm";
-			this.Text = "Form1";
+			this.Text = "Calculator";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
