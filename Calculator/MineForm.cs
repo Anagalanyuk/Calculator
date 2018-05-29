@@ -31,6 +31,7 @@ namespace Calculator
 					if (newOperation)
 					{
 						displayCalculator.Text = "0";
+						newOperation = false;
 					}
 					else
 					{
@@ -44,12 +45,12 @@ namespace Calculator
 					if (isFirstNumber)
 					{
 						buttonResult.Enabled = true;
-						displayCalculator.Text = "1";
+						displayCalculator.Text = "0";
 						isFirstNumber = false;
 					}
 					else
 					{
-						displayCalculator.Text += "1";
+						displayCalculator.Text += "0";
 					}
 				}
 			}
@@ -67,6 +68,7 @@ namespace Calculator
 					if (newOperation)
 					{
 						displayCalculator.Text = "1";
+						newOperation = false;
 					}
 					else
 					{
@@ -104,6 +106,7 @@ namespace Calculator
 					if (newOperation)
 					{
 						displayCalculator.Text = "2";
+						newOperation = false;
 					}
 					else
 					{
@@ -141,6 +144,7 @@ namespace Calculator
 					if (newOperation)
 					{
 						displayCalculator.Text = "3";
+						newOperation = false;
 					}
 					else
 					{
@@ -178,6 +182,7 @@ namespace Calculator
 					if (newOperation)
 					{
 						displayCalculator.Text = "4";
+						newOperation = false;
 					}
 					else
 					{
@@ -215,6 +220,7 @@ namespace Calculator
 					if (newOperation)
 					{
 						displayCalculator.Text = "5";
+						newOperation = false;
 					}
 					else
 					{
@@ -252,6 +258,7 @@ namespace Calculator
 					if (newOperation)
 					{
 						displayCalculator.Text = "6";
+						newOperation = false;
 					}
 					else
 					{
@@ -289,6 +296,7 @@ namespace Calculator
 					if (newOperation)
 					{
 						displayCalculator.Text = "7";
+						newOperation = false;
 					}
 					else
 					{
@@ -326,6 +334,7 @@ namespace Calculator
 					if (newOperation)
 					{
 						displayCalculator.Text = "8";
+						newOperation = false;
 					}
 					else
 					{
@@ -363,6 +372,7 @@ namespace Calculator
 					if (newOperation)
 					{
 						displayCalculator.Text = "9";
+						newOperation = false;
 					}
 					else
 					{
