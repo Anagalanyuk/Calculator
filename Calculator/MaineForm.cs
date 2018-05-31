@@ -6,7 +6,7 @@ namespace Calculator
 	public partial class MaineForm : Form
 	{
 		private bool isFirstNumber = true;
-		private bool isRightOprand = false;
+		private bool isRightOperand = false;
 		private bool newOperation = false;
 		private int operandLeft;
 		private int operandRight;
@@ -108,7 +108,7 @@ namespace Calculator
 			}
 			displayNumber.Text = "";
 			displayCalculator.Text = result.ToString();
-			isRightOprand = false;
+			isRightOperand = false;
 			isFirstNumber = true;
 			newOperation = true;
 			OffArithmeticOperations();
@@ -146,7 +146,7 @@ namespace Calculator
 			}
 			else
 			{
-				if (!isRightOprand)
+				if (!isRightOperand)
 				{
 					if (newOperation)
 					{
@@ -182,7 +182,7 @@ namespace Calculator
 			displayNumber.Text += $" {item}";
 			OffArithmeticOperations();
 			operandLeft = int.Parse(displayCalculator.Text);
-			isRightOprand = true;
+			isRightOperand = true;
 			isFirstNumber = true;
 		}
 
