@@ -1,6 +1,6 @@
 ﻿namespace Calculator
 {
-	partial class MineForm
+	partial class MaineForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -102,6 +102,7 @@
 			this.button1.Text = "1";
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.Button1_Click);
+			this.button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
 			// 
 			// butonCE
 			// 
@@ -233,7 +234,7 @@
 			this.buttonPlus.UseVisualStyleBackColor = true;
 			this.buttonPlus.Click += new System.EventHandler(this.ButtonPlus_Click);
 			// 
-			// MineForm
+			// MaineForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -258,7 +259,7 @@
 			this.Controls.Add(this.displayNumber);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
-			this.Name = "MineForm";
+			this.Name = "MaineForm";
 			this.Text = "Calculator";
 			this.ResumeLayout(false);
 			this.PerformLayout();
