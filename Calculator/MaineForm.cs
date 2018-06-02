@@ -6,7 +6,7 @@ namespace Calculator
 	internal partial class MaineForm : Form
 	{
 		private bool isFirstNumber = true;
-		private bool isKeyOperation = true;
+		private bool isKeyboardOperation = true;
 		private bool isRightOperand = false;
 		private bool newOperation = false;
 		private int operandLeft;
@@ -130,7 +130,7 @@ namespace Calculator
 					{
 						displayCalculator.Text = item;
 						newOperation = false;
-						isKeyOperation = true;
+						isKeyboardOperation = true;
 					}
 					else
 					{
@@ -194,10 +194,10 @@ namespace Calculator
 					InsertNember("7");
 					break;
 				case Keys.D8:
-					if (e.Shift && isKeyOperation)
+					if (e.Shift && isKeyboardOperation)
 					{
 						ArithmeticOperation("*");
-						isKeyOperation = false;
+						isKeyboardOperation = false;
 					}
 					else
 					{
@@ -208,10 +208,10 @@ namespace Calculator
 					InsertNember("9");
 					break;
 				case Keys.OemMinus:
-					if (isKeyOperation)
+					if (isKeyboardOperation)
 					{
 						ArithmeticOperation("-");
-						isKeyOperation = false;
+						isKeyboardOperation = false;
 					}
 					break;
 				case Keys.Oemplus:
@@ -219,17 +219,17 @@ namespace Calculator
 					{
 						ResultOperation();
 					}
-					else if (!e.Shift && isKeyOperation)
+					else if (!e.Shift && isKeyboardOperation)
 					{
 						ArithmeticOperation("+");
-						isKeyOperation = false;
+						isKeyboardOperation = false;
 					}
 					break;
 				case Keys.OemQuestion:
-					if (isKeyOperation)
+					if (isKeyboardOperation)
 					{
 						ArithmeticOperation("/");
-						isKeyOperation = false;
+						isKeyboardOperation = false;
 					}
 					break;
 				case Keys.Back:
