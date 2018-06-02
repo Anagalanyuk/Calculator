@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-	internal partial class MaineForm : Form
+	internal partial class MainForm : Form
 	{
 		private bool isFirstNumber = true;
 		private bool isKeyboardOperation = true;
@@ -13,7 +13,7 @@ namespace Calculator
 		private int operandRight;
 		private int result;
 
-		public MaineForm()
+		public MainForm()
 		{
 			InitializeComponent();
 			OffArithmeticOperations();

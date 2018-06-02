@@ -1,6 +1,6 @@
 ﻿namespace Calculator
 {
-	partial class MaineForm
+	partial class MainForm
 	{
 		/// <summary>
 		/// Required designer variable.
