@@ -3,9 +3,10 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-	public partial class MaineForm : Form
+	internal partial class MaineForm : Form
 	{
 		private bool isFirstNumber = true;
+		private bool isKeyOperation = true;
 		private bool isRightOperand = false;
 		private bool newOperation = false;
 		private int operandLeft;
@@ -90,35 +91,12 @@ namespace Calculator
 
 		private void ButtonResult_Click(object sender, EventArgs e)
 		{
-			operandRight = int.Parse(displayCalculator.Text);
-			switch (displayNumber.Text[displayNumber.Text.Length - 1])
-			{
-				case '+':
-					result = operandLeft + operandRight;
-					break;
-				case '_':
-					result = operandLeft - operandRight;
-					break;
-				case '*':
-					result = operandLeft * operandRight;
-					break;
-				case '/':
-					result = operandLeft / operandRight;
-					break;
-			}
-			displayNumber.Text = "";
-			displayCalculator.Text = result.ToString();
-			isRightOperand = false;
-			isFirstNumber = true;
-			newOperation = true;
-			OffArithmeticOperations();
+			ResultOperation();
 		}
 
 		private void ButonCE_Click(object sender, EventArgs e)
 		{
-			displayCalculator.Text = "";
-			OffArithmeticOperations();
-			isFirstNumber = true;
+			Reset();
 		}
 
 		private void OffArithmeticOperations()
@@ -152,6 +130,7 @@ namespace Calculator
 					{
 						displayCalculator.Text = item;
 						newOperation = false;
+						isKeyOperation = true;
 					}
 					else
 					{
@@ -186,9 +165,110 @@ namespace Calculator
 			isFirstNumber = true;
 		}
 
-		private void button1_KeyDown(object sender, KeyEventArgs e)
+		private void MaineForm_KeyDown(object sender, KeyEventArgs e)
 		{
-			InsertNember("1");
+			switch (e.KeyCode)
+			{
+				case Keys.D0:
+					InsertNember("0");
+					break;
+				case Keys.D1:
+					InsertNember("1");
+					break;
+				case Keys.D2:
+					InsertNember("2");
+					break;
+				case Keys.D3:
+					InsertNember("3");
+					break;
+				case Keys.D4:
+					InsertNember("4");
+					break;
+				case Keys.D5:
+					InsertNember("5");
+					break;
+				case Keys.D6:
+					InsertNember("6");
+					break;
+				case Keys.D7:
+					InsertNember("7");
+					break;
+				case Keys.D8:
+					if (e.Shift && isKeyOperation)
+					{
+						ArithmeticOperation("*");
+						isKeyOperation = false;
+					}
+					else
+					{
+						InsertNember("8");
+					}
+					break;
+				case Keys.D9:
+					InsertNember("9");
+					break;
+				case Keys.OemMinus:
+					if (isKeyOperation)
+					{
+						ArithmeticOperation("-");
+						isKeyOperation = false;
+					}
+					break;
+				case Keys.Oemplus:
+					if (e.Shift && isRightOperand)
+					{
+						ResultOperation();
+					}
+					else if (!e.Shift && isKeyOperation)
+					{
+						ArithmeticOperation("+");
+						isKeyOperation = false;
+					}
+					break;
+				case Keys.OemQuestion:
+					if (isKeyOperation)
+					{
+						ArithmeticOperation("/");
+						isKeyOperation = false;
+					}
+					break;
+				case Keys.Back:
+					Reset();
+					break;
+			}
+		}
+
+		private void Reset()
+		{
+			displayCalculator.Text = "";
+			OffArithmeticOperations();
+			isFirstNumber = true;
+		}
+
+		private void ResultOperation()
+		{
+			operandRight = int.Parse(displayCalculator.Text);
+			switch (displayNumber.Text[displayNumber.Text.Length - 1])
+			{
+				case '+':
+					result = operandLeft + operandRight;
+					break;
+				case '_':
+					result = operandLeft - operandRight;
+					break;
+				case '*':
+					result = operandLeft * operandRight;
+					break;
+				case '/':
+					result = operandLeft / operandRight;
+					break;
+			}
+			displayNumber.Text = "";
+			displayCalculator.Text = result.ToString();
+			isRightOperand = false;
+			isFirstNumber = true;
+			newOperation = true;
+			OffArithmeticOperations();
 		}
 	}
 }

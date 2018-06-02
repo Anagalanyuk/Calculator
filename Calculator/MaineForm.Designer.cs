@@ -95,14 +95,13 @@
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(27, 175);
+			this.button1.Location = new System.Drawing.Point(27, 176);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(100, 40);
 			this.button1.TabIndex = 4;
 			this.button1.Text = "1";
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.Button1_Click);
-			this.button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
 			// 
 			// butonCE
 			// 
@@ -258,9 +257,11 @@
 			this.Controls.Add(this.displayCalculator);
 			this.Controls.Add(this.displayNumber);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.KeyPreview = true;
 			this.MaximizeBox = false;
 			this.Name = "MaineForm";
 			this.Text = "Calculator";
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MaineForm_KeyDown);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
