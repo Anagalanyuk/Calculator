@@ -224,6 +224,7 @@ namespace Calculator
 					if (e.Shift && isRightOperand)
 					{
 						ResultOperation();
+						isLeftOperand = false;
 					}
 					else if (!e.Shift && isKeyboardOperation && isLeftOperand)
 					{
@@ -259,7 +260,7 @@ namespace Calculator
 				case '+':
 					result = operandLeft + operandRight;
 					break;
-				case '_':
+				case '-':
 					result = operandLeft - operandRight;
 					break;
 				case '*':
