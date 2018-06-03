@@ -7,6 +7,7 @@ namespace Calculator
 	{
 		private bool isFirstNumber = true;
 		private bool isKeyboardOperation = true;
+		private bool isLeftOperand = false;
 		private bool isRightOperand = false;
 		private bool newOperation = false;
 		private int operandLeft;
@@ -121,6 +122,7 @@ namespace Calculator
 			if (displayCalculator.Text == "0")
 			{
 				displayCalculator.Text = item;
+				isLeftOperand = true;
 			}
 			else
 			{
@@ -131,10 +133,12 @@ namespace Calculator
 						displayCalculator.Text = item;
 						newOperation = false;
 						isKeyboardOperation = true;
+						isLeftOperand = true;
 					}
 					else
 					{
 						displayCalculator.Text += item;
+						isLeftOperand = true;
 					}
 					OnArithmeticOperations();
 					buttonResult.Enabled = false;
@@ -146,10 +150,12 @@ namespace Calculator
 						buttonResult.Enabled = true;
 						displayCalculator.Text = item;
 						isFirstNumber = false;
+						isLeftOperand = true;
 					}
 					else
 					{
 						displayCalculator.Text += item;
+						isLeftOperand = true;
 					}
 				}
 			}
@@ -194,12 +200,12 @@ namespace Calculator
 					InsertNember("7");
 					break;
 				case Keys.D8:
-					if (e.Shift && isKeyboardOperation)
+					if (e.Shift && isKeyboardOperation && isLeftOperand)
 					{
 						ArithmeticOperation("*");
 						isKeyboardOperation = false;
 					}
-					else
+					else if(!e.Shift)
 					{
 						InsertNember("8");
 					}
@@ -208,7 +214,7 @@ namespace Calculator
 					InsertNember("9");
 					break;
 				case Keys.OemMinus:
-					if (isKeyboardOperation)
+					if (isKeyboardOperation && isLeftOperand)
 					{
 						ArithmeticOperation("-");
 						isKeyboardOperation = false;
@@ -219,14 +225,14 @@ namespace Calculator
 					{
 						ResultOperation();
 					}
-					else if (!e.Shift && isKeyboardOperation)
+					else if (!e.Shift && isKeyboardOperation && isLeftOperand)
 					{
 						ArithmeticOperation("+");
 						isKeyboardOperation = false;
 					}
 					break;
 				case Keys.OemQuestion:
-					if (isKeyboardOperation)
+					if (isKeyboardOperation && isLeftOperand)
 					{
 						ArithmeticOperation("/");
 						isKeyboardOperation = false;
